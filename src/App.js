@@ -1,4 +1,5 @@
 import './scss/app.scss';
+import pizzaList from './assets/pizzas.json';
 import Header from './components/Header';
 import Categories from './containers/Content/Categories';
 import Sort from './containers/Content/Sort';
@@ -18,42 +19,9 @@ function App() {
                         </div>
                         <Title />
                         <div className='content__items'>
-                            <Item
-                                img='https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg'
-                                title='Чизбургер-пицца'
-                            />
-                            <Item
-                                img='https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg'
-                                title='Чизбургер-пицца'
-                            />
-                            <Item
-                                img='https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg'
-                                title='Чизбургер-пицца'
-                            />
-                            <Item
-                                img='https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg'
-                                title='Чизбургер-пицца'
-                            />
-                            <Item
-                                img='https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg'
-                                title='Чизбургер-пицца'
-                            />
-                            <Item
-                                img='https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg'
-                                title='Чизбургер-пицца'
-                            />
-                            <Item
-                                img='https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg'
-                                title='Чизбургер-пицца'
-                            />
-                            <Item
-                                img='https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg'
-                                title='Чизбургер-пицца'
-                            />
-                            <Item
-                                img='https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg'
-                                title='Чизбургер-пицца'
-                            />
+                            {pizzaList.map((el, i) => (
+                                <Item key={i} {...el} />
+                            ))}
                         </div>
                     </div>
                 </div>
