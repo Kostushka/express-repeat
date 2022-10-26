@@ -5,9 +5,10 @@ import Sort from './containers/Content/Sort';
 import Title from './containers/Content/Title';
 import Item from './containers/Content/Item';
 import { useEffect, useState } from 'react';
+import SkeletonItem from './containers/Content/Item/SkeletonItem';
 
 function App() {
-    const [loader, setLoader] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
     const [pizzaList, setPizzaList] = useState([]);
     // fetch запрос
     useEffect(() => {
@@ -15,7 +16,7 @@ function App() {
             .then((res) => res.json())
             .then((json) => {
                 setPizzaList(json);
-                setLoader(false);
+                setIsLoading(false);
             });
     }, []);
 
@@ -30,13 +31,16 @@ function App() {
                             <Sort />
                         </div>
                         <Title />
-                        {(loader && 'Идет загрузка...') || (
-                            <div className='content__items'>
-                                {pizzaList.map((el, i) => (
-                                    <Item key={i} {...el} />
-                                ))}
-                            </div>
-                        )}
+
+                        <div className='content__items'>
+                            {isLoading
+                                ? [...new Array(6)].map((_, i) => (
+                                      <SkeletonItem key={i} />
+                                  ))
+                                : pizzaList.map((el, i) => {
+                                      return <Item key={i} {...el} />;
+                                  })}
+                        </div>
                     </div>
                 </div>
             </div>
