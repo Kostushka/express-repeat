@@ -6,7 +6,7 @@ function Item({ id, title, imageUrl, sizes, price, types }) {
     const type = ['тонкое', 'традиционное'];
     const [activeType, setActiveType] = useState(0);
     return (
-        <>
+        <div className='pizza-block-wrapper'>
             <div key={id} className='pizza-block'>
                 <img
                     className='pizza-block__image'
@@ -66,7 +66,7 @@ function Item({ id, title, imageUrl, sizes, price, types }) {
                     </button>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
 
